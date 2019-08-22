@@ -77,7 +77,9 @@ public class Base2048Test {
         shouldEncodeAndDecode(instance, "3fffff", "歇 歇");
     }
 
-    private void shouldEncodeAndDecode(Base2048 solver, final String hexInput, final String base2048Input) {
+    private void shouldEncodeAndDecode(final Base2048 solver,
+                                       final String hexInput,
+                                       final String base2048Input) {
 
         final byte[] binaryDataInput;
         try {
@@ -89,7 +91,13 @@ public class Base2048Test {
         final String encodedBase2048 = solver.encode(binaryDataInput);
         assertEquals(base2048Input, encodedBase2048);
 
-        final byte[] decodedBinaryData = solver.decode(base2048Input);
+        final byte[] decodedBinaryData;
+        try {
+            decodedBinaryData = solver.decode(base2048Input);
+        } catch (IllegalBaseCodeException e) {
+            throw new RuntimeException(e);
+        }
+
         assertArrayEquals(binaryDataInput, decodedBinaryData);
     }
 }
