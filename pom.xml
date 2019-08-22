@@ -19,11 +19,62 @@
     </licenses>
 
     <developers>
+        <!--
+            Base58 (BitcoinJ)
+        -->
+        <developer>
+            <name>Mike Hearn</name>
+            <organization>Google Inc</organization>
+        </developer>
+
+        <!--
+            JavaScript port.
+        -->
+        <developer>
+            <name>Stefan Thomas</name>
+        </developer>
+
+        <developer>
+            <name>Stephen Pair</name>
+            <organization>BitPay Inc</organization>
+        </developer>
+
+        <!--
+            https://github.com/cryptocoinjs/base-x
+        -->
+        <developer>
+            <name>Daniel Cousens</name>
+            <url>https://github.com/dcousens</url>
+        </developer>
+        <developer>
+            <name>Kirill Fomichev</name>
+            <email>fanatid@ya.ru</email>
+            <url>https://github.com/fanatid</url>
+        </developer>
+        <developer>
+            <name>Nicholas Dudfield</name>
+            <email>ndudfield@gmail.com</email>
+            <url>https://github.com/sublimator</url>
+        </developer>
+
+        <!--
+            https://github.com/safezero/base-x-array
+            https://github.com/safezero/base-2048
+        -->
         <developer>
             <name>Aakil Fernandes</name>
             <email>aakilfernandes@gmail.com</email>
             <organization>SafeZero</organization>
             <organizationUrl>https://github.com/safezero/</organizationUrl>
+        </developer>
+
+        <!--
+            Java port.
+        -->
+        <developer>
+            <name>Georgy Ustinov</name>
+            <organization>TKO-Inform</organization>
+            <organizationUrl>http://tko-inform.ru/</organizationUrl>
         </developer>
     </developers>
 

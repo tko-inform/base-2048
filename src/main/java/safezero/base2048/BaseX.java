@@ -10,8 +10,6 @@
  * Ported to JavaScript by Stefan Thomas
  * Merged Buffer refactorings from base58-native by Stephen Pair
  * Copyright (c) 2013 BitPay Inc
- *
- * And then ported back to Java.
  */
 
 package safezero.base2048;
