@@ -140,6 +140,38 @@ public class Base2048Test {
         );
     }
 
+    @Test
+    public void decodingChineseSimplifiedWithoutSpaces() {
+        final String address = "的和暗磁集捐区纱悟饿表瓶恩脚太亏质匀容";
+        final byte[] bytes;
+        try {
+            bytes = Base2048.CHINESE_SIMPLIFIED.decode(address);
+        } catch (IllegalBaseCodeException e) {
+            throw new RuntimeException(e);
+        }
+
+        assertEquals(
+                "003c176e659bea0f29a3e9bf7880c112b1b31b4dc826268187",
+                Hex.encodeHexString(bytes)
+        );
+    }
+
+    @Test
+    public void decodingChineseTraditionalWithoutSpaces() {
+        final String address = "的和暗磁集捐區紗悟餓表瓶恩腳太虧質勻容";
+        final byte[] bytes;
+        try {
+            bytes = Base2048.CHINESE_TRADITIONAL.decode(address);
+        } catch (IllegalBaseCodeException e) {
+            throw new RuntimeException(e);
+        }
+
+        assertEquals(
+                "003c176e659bea0f29a3e9bf7880c112b1b31b4dc826268187",
+                Hex.encodeHexString(bytes)
+        );
+    }
+
     private void shouldEncodeAndDecode(final Base2048 solver,
                                        final String hexInput,
                                        final String base2048Input) {

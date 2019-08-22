@@ -7,7 +7,7 @@
 
     <groupId>io.github.safezero</groupId>
     <artifactId>base-2048</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
 
     <name>Base2048</name>
 

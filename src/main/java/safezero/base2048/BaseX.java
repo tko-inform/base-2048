@@ -21,6 +21,7 @@ final class BaseX {
     public final String[] alphabet;
     public final int base;
     private final String leader;
+    private final boolean singleCharacterWordsOnly;
 
     private final Map<String, Integer> alphabetMap = new HashMap<>();
 
@@ -32,6 +33,9 @@ final class BaseX {
         for (int i = 0; i < alphabet.length; i++) {
             alphabetMap.put(alphabet[i], i);
         }
+
+        singleCharacterWordsOnly =
+                Arrays.stream(alphabet).allMatch(s -> s.length() == 1);
     }
 
     public String encode(final byte[] source) {
@@ -77,7 +81,13 @@ final class BaseX {
             return new byte[0];
         }
 
-        String[] letters = input.split("\\s+");
+        String[] letters;
+
+        if (singleCharacterWordsOnly) {
+            letters = input.replaceAll("\\s+", "").split("");
+        } else {
+            letters = input.split("\\s+");
+        }
 
         List<Byte> bytes = new ArrayList<>();
         bytes.add((byte) 0);
