@@ -25,13 +25,12 @@ Languages
 API
 ---
 
-### encode(input)
-
-`input` must be a [Buffer](https://nodejs.org/api/buffer.html) or an `Array`. It returns a `string`.
-
-**example**:
+### String encode(byte[] input)
 
 ```java
+import safezero.base2048.Base2048;
+import org.apache.commons.codec.binary.Hex;
+
 String input = "003c176e659bea0f29a3e9bf7880c112b1b31b4dc826268187";
 byte[] bytes;
 try {
@@ -63,16 +62,18 @@ Base2048.SPANISH.encode(bytes);
 ```
 
 
-### decode(input)
+### byte[] decode(String input)
 
-`input` must be a base-2048 encoded string. Returns a [Buffer](https://nodejs.org/api/buffer.html).
+```java
+final String address = "的 和 暗 磁 集 捐 区 纱 悟 饿 表 瓶 恩 脚 太 亏 质 匀 容";
 
-**example**:
+final byte[] bytes;
+try {
+    bytes = Base2048.CHINESE_SIMPLIFIED.decode(address);
+} catch (IllegalBaseCodeException e) {
+    throw new RuntimeException(e);
+}
 
-```js
-const base2048 = require('base-2048')
-
-const address = '的 和 暗 磁 集 捐 区 纱 悟 饿 表 瓶 恩 脚 太 亏 质 匀 容'
-const bytes = base2048.chineseSimplified.decode(address).toString('hex')
+Hex.encodeHexString(bytes);
 // => 003c176e659bea0f29a3e9bf7880c112b1b31b4dc826268187
 ```

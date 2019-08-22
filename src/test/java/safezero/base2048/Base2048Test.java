@@ -3,6 +3,7 @@ package safezero.base2048;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 public class Base2048Test {
@@ -78,7 +79,7 @@ public class Base2048Test {
     }
 
     @Test
-    public void readMeTest() {
+    public void readMeTest1() {
         final String input = "003c176e659bea0f29a3e9bf7880c112b1b31b4dc826268187";
         final byte[] bytes;
         try {
@@ -120,6 +121,22 @@ public class Base2048Test {
         assertEquals(
                 "ábaco abrazo loción hueco catre vil bicho nevera vajilla yacer aprender rama mula hocico colmo sudor arroz nevar chuleta",
                 Base2048.SPANISH.encode(bytes)
+        );
+    }
+
+    @Test
+    public void readMeTest2() {
+        final String address = "的 和 暗 磁 集 捐 区 纱 悟 饿 表 瓶 恩 脚 太 亏 质 匀 容";
+        final byte[] bytes;
+        try {
+            bytes = Base2048.CHINESE_SIMPLIFIED.decode(address);
+        } catch (IllegalBaseCodeException e) {
+            throw new RuntimeException(e);
+        }
+
+        assertEquals(
+                "003c176e659bea0f29a3e9bf7880c112b1b31b4dc826268187",
+                Hex.encodeHexString(bytes)
         );
     }
 
